@@ -27,8 +27,8 @@ input.addEventListener("keyup", (e) => {
       name: e.target.value,
       watched: false,
     });
-    createUI(allMovies);
     e.target.value = "";
+    createUI(allMovies);
   }
 });
 const createUI = (allMovies) => {

@@ -1,21 +1,6 @@
-#### Refactor with React and ReactDOM
+#### Movie App with createElement
 
-- Copy the code for Movie Watch List app you created in the last exercise
-- Refactor the app to use `React` and `ReactDOM`
-- We will use `React` to create element and `ReactDOM` to render the element on DOM
-- Check if the application is working properly
-
-#### Extra Info
-
-CDN url for React and ReactDOM.
-
-```html
-<script
-  crossorigin
-  src="https://unpkg.com/react@17/umd/react.development.js"
-></script>
-<script
-  crossorigin
-  src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
-></script>
-```
+- Create you own `createElement` function similar to `elm` function in the explainer videos
+- Refactor the movie watch list app created in the previous exercise to use `createElement` function to create DOM element in the app.
+- You can copy your code form previous exercise and refactor
+- Make sure all the functionality of the application works properly

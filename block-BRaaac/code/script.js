@@ -1,12 +1,15 @@
 const input = document.querySelector("input");
 const root = document.querySelector(".movie-list");
 const allMovies = [];
-const elm = (type, attr = {}, ...children) => {
+const element = (type, attr = {}, ...children) => {
   const element = document.createElement(type);
   const keyArr = Object.keys(attr);
   keyArr.forEach((key) => {
     if (key.startsWith("data-")) {
       element.setAttribute(key, attr[key]);
+    } else if (key.startsWith("on")) {
+      let eventType = key.replace("on", "");
+      element.addEventListener(eventType, attr[key]);
     } else {
       element[key] = attr[key];
     }
@@ -34,31 +37,28 @@ input.addEventListener("keyup", (e) => {
 const createUI = (allMovies) => {
   root.innerHTML = "";
   allMovies.forEach((movie, i) => {
-    let li = elm(
+    let li = element(
       "li",
       {},
-      elm("cite", {}, movie.name),
-      elm(
+      element(
+        "cite",
+        {
+          style: {
+            textDecoration: "line-through",
+          },
+        },
+        movie.name
+      ),
+      element(
         "button",
         {
           "data-id": i,
+          onclick: handleBtn,
         },
         movie.watched ? "Watched" : "Yet to Watch"
       )
     );
     root.append(li);
-  });
-  const buttons = document.querySelectorAll("button");
-  buttons.forEach((button) => {
-    button.addEventListener("click", handleBtn);
-  });
-  const cites = document.querySelectorAll("cite");
-  cites.forEach((cite) => {
-    if (!movie.watched) {
-      cite.style.textDecoration = "none";
-    } else {
-      cite.style.textDecoration = "line-through";
-    }
   });
 };
 
@@ -69,5 +69,6 @@ var handleBtn = (event) => {
   } else {
     allMovies[id].watched = false;
   }
+
   createUI(allMovies);
 };

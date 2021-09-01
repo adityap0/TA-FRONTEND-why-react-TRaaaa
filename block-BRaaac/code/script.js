@@ -1,29 +1,6 @@
 const input = document.querySelector("input");
 const root = document.querySelector(".movie-list");
 const allMovies = [];
-const element = (type, attr = {}, ...children) => {
-  const element = document.createElement(type);
-  const keyArr = Object.keys(attr);
-  keyArr.forEach((key) => {
-    if (key.startsWith("data-")) {
-      element.setAttribute(key, attr[key]);
-    } else if (key.startsWith("on")) {
-      let eventType = key.replace("on", "");
-      element.addEventListener(eventType, attr[key]);
-    } else {
-      element[key] = attr[key];
-    }
-  });
-  children.forEach((child) => {
-    if (typeof child === "object") {
-      element.append(child);
-    } else if (typeof child === "string") {
-      const node = document.createTextNode(child);
-      element.append(node);
-    }
-  });
-  return element;
-};
 input.addEventListener("keyup", (e) => {
   if (e.keyCode === 13) {
     allMovies.push({
@@ -35,31 +12,31 @@ input.addEventListener("keyup", (e) => {
   }
 });
 const createUI = (allMovies) => {
-  root.innerHTML = "";
-  allMovies.forEach((movie, i) => {
-    let li = element(
+  allMovies = allMovies.map((movie, i) => {
+    let li = React.createElement(
       "li",
       {},
-      element(
+      React.createElement(
         "cite",
         {
           style: {
-            textDecoration: "line-through",
+            textDecoration: movie.watched ? "line-through" : "none",
           },
         },
         movie.name
       ),
-      element(
+      React.createElement(
         "button",
         {
           "data-id": i,
-          onclick: handleBtn,
+          onClick: handleBtn,
         },
         movie.watched ? "Watched" : "Yet to Watch"
       )
     );
-    root.append(li);
+    return li;
   });
+  ReactDOM.render(allMovies, root);
 };
 
 var handleBtn = (event) => {
@@ -69,6 +46,5 @@ var handleBtn = (event) => {
   } else {
     allMovies[id].watched = false;
   }
-
   createUI(allMovies);
 };

@@ -44,30 +44,15 @@
       });
       const createUI = (allMovies) => {
         allMovies = allMovies.map((movie, i) => {
-          // let li = React.createElement(
-          //   "li",
-          //   {},
-          //   React.createElement(
-          //     "cite",
-          //     {
-          //       style: {
-          //         textDecoration: movie.watched ? "line-through" : "none",
-          //       },
-          //     },
-          //     movie.name
-          //   ),
-          //   React.createElement(
-          //     "button",
-          //     {
-          //       "data-id": i,
-          //       onClick: handleBtn,
-          //     },
-          //     movie.watched ? "Watched" : "Yet to Watch"
-          //   )
-          // );
           return (
             <li>
-              <cite>{movie.name}</cite>
+              <cite
+                style={{
+                  textDecoration: movie.watched ? "line-through" : "none",
+                }}
+              >
+                {movie.name}
+              </cite>
               <button onClick={handleBtn} data-id={i}>
                 {movie.watched ? "Watched" : "Yet to Watch"}
               </button>
@@ -76,7 +61,6 @@
         });
         ReactDOM.render(allMovies, root);
       };
-
       var handleBtn = (event) => {
         let id = event.target.dataset.id;
         if (!allMovies[id].watched) {

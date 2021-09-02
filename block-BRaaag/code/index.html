@@ -12,13 +12,6 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./style.css" />
-  </head>
-  <body>
-    <header>Movie Watch List</header>
-    <main>
-      <input type="text" placeholder="Enter the movie name!" />
-      <ul class="movie-list"></ul>
-    </main>
     <script
       crossorigin
       src="https://unpkg.com/react@17/umd/react.development.js"
@@ -28,6 +21,8 @@
       src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
     ></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
     <script type="text/babel">
       const input = document.querySelector("input");
       const root = document.querySelector(".movie-list");
@@ -71,5 +66,10 @@
         createUI(allMovies);
       };
     </script>
+    <header>Movie Watch List</header>
+    <main>
+      <input type="text" placeholder="Enter the movie name!" />
+      <ul class="movie-list"></ul>
+    </main>
   </body>
 </html>

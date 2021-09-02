@@ -1,22 +1,6 @@
-#### Movie App with JSX
+#### Movie App with createElement
 
-- Copy the code from previous exercise
-- Refactor it to use `JSX` using babel
-- Use the links given below for babel
-- Make sure to follow the example for writing JSX
-
-#### Basic Info
-
-CDN url for babel to use in our project.
-
-```html
-<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-```
-
-While using Babel don't forget to change `type` attribute of `script` element.
-
-```html
-<script type="text/babel">
-  // JSX code goes here
-</script>
-```
+- Create you own `createElement` function similar to `elm` function in the explainer videos
+- Refactor the movie watch list app created in the previous exercise to use `createElement` function to create DOM element in the app.
+- You can copy your code form previous exercise and refactor
+- Make sure all the functionality of the application works properly

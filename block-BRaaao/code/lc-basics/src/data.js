@@ -1,17 +1,4 @@
-#### Create Article Card Using JSX
-
-- Create a news app similar to the one give in preview (named Gizmo).
-- Break down the home page into different components.
-- It needs to have all these components `Header, Hero, Articles, Article, Footer`
-- Use the data given below to create the articles with different information
-- The blueprint for the UI is given. Follow the patterns given in the preview and add anything you want.
-
-#### Preview
-
-![Article Card](../assets/homepage.png)
-
-```js
-[
+const library = [
   {
     author: "Omkar Godbole",
     title: "Third Halving Turns Out to Be Non-Event for Bitcoin’s Price",
@@ -102,4 +89,5 @@
       "The crypto industry is relatively new. Because of that, people need time to adapt to it. You will find people that are skeptical about this subject. They believe that cryptocurrencies will never replace fiat money. More precisely, you will hear them saying th… [+6128 chars]",
   },
 ];
-```
+
+export default library;

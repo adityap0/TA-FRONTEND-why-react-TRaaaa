@@ -3,7 +3,7 @@ const Article = (props) => {
   return (
     <div className="flex flex-col border border-black p-2 m-10 justify-between w-3/12 items-center">
       <div className="w-full">
-        <img src={props.urlToImage} className="h-50 w-full" />
+        <img src={props.urlToImage} className="h-50 w-full" alt="take" />
       </div>
       <div className="w-full text-center p-2">{props.title}</div>
     </div>
